@@ -1773,7 +1773,9 @@ nav a:hover::after {
 }
 
 
-/* ICON */
+/* =========================
+   SOCIAL ICON
+========================= */
 
 .social-icon {
   width: 24px;
@@ -1789,19 +1791,72 @@ nav a:hover::after {
 }
 
 
-/* ARROW */
+/* =========================
+   CSS DRAWN ARROW
+   NO EMOJI
+========================= */
 
 .social-link .arrow {
-  font-size: 1rem;
+  position: relative;
 
-  margin-left: -4px;
+  display: inline-block;
+
+  width: 14px;
+
+  height: 14px;
+
+  margin-left: 2px;
+
+  font-size: 0;
+
+  line-height: 0;
 
   transition:
     transform 0.25s ease;
 }
 
+.social-link .arrow::before {
+  content: "";
 
-/* HOVER */
+  position: absolute;
+
+  width: 11px;
+
+  height: 1.5px;
+
+  background: currentColor;
+
+  left: 0;
+
+  top: 7px;
+
+  transform: rotate(-45deg);
+
+  transform-origin: center;
+}
+
+.social-link .arrow::after {
+  content: "";
+
+  position: absolute;
+
+  width: 6px;
+
+  height: 6px;
+
+  border-top: 1.5px solid currentColor;
+
+  border-right: 1.5px solid currentColor;
+
+  right: 0;
+
+  top: 1px;
+}
+
+
+/* =========================
+   SOCIAL HOVER
+========================= */
 
 .social-link:hover {
   transform: translateY(-3px);
@@ -1818,14 +1873,18 @@ nav a:hover::after {
 }
 
 
-/* PHONE */
+/* =========================
+   PHONE
+========================= */
 
 .phone-link {
   font-size: 1.25rem;
 }
 
 
-/* COPYRIGHT */
+/* =========================
+   COPYRIGHT
+========================= */
 
 .contact-footer .copyright {
   margin-left: auto;
@@ -1859,337 +1918,510 @@ nav a:hover::after {
 
 /* ==================================================
    TABLET / MOBILE
+   SAME DESIGN AS DESKTOP — ONLY SCALED DOWN
 ================================================== */
 
 @media (max-width: 800px) {
 
-  .nav,
-  .hero,
-  .work,
-  .what-i-do,
-  .about {
-    width: min(100% - 32px, 1240px);
-  }
+  /* =========================
+     NAVIGATION
+  ========================= */
 
   .nav {
-    height: 65px;
+    width: min(1240px, calc(100% - 32px));
 
-    top: 0;
+    height: 65px;
   }
 
   nav {
-    display: none;
-
-    position: absolute;
-
-    top: 68px;
-    right: 0;
-
-    flex-direction: column;
+    display: flex;
 
     gap: 20px;
-
-    background: var(--brown);
-
-    color: var(--cream);
-
-    padding: 22px 25px;
-  }
-
-  nav.open {
-    display: flex;
   }
 
   nav a {
-    color: var(--cream);
+    font-size: 0.55rem;
   }
 
   .menu-button {
-    display: block;
+    display: none;
   }
 
 
   /* =========================
-     HERO MOBILE
+     HERO
+     KEEP DESKTOP STRUCTURE
   ========================= */
 
   .hero {
-    min-height: 850px;
+    min-height: 100vh;
 
-    padding-top: 0;
+    width: 100%;
   }
 
   .hero-content {
-    min-height: 850px;
+    width: min(1240px, calc(100% - 32px));
 
-    padding-top: 110px;
+    min-height: 100vh;
+
+    padding: 105px 0 40px;
   }
 
   .hero-top {
-    font-size: 0.55rem;
+    font-size: 0.52rem;
   }
 
   .hero-main {
-    min-height: auto;
+    min-height: 450px;
 
-    display: flex;
+    display: grid;
 
-    flex-direction: column;
+    grid-template-columns: 1fr 0.7fr;
 
-    align-items: stretch;
+    column-gap: 25px;
 
-    gap: 35px;
+    align-items: center;
   }
 
   .hero-name {
-    padding: 35px 0 0;
+    padding: 35px 0;
   }
 
   .hero-name h1 {
-    font-size: clamp(4.5rem, 18vw, 8rem);
+    font-size: clamp(3.3rem, 11vw, 7rem);
+
+    white-space: nowrap;
   }
 
   .outline-name {
     margin-left: 5vw !important;
   }
 
+  .name-top {
+    font-size: 0.5rem;
+
+    gap: 10px;
+
+    margin-bottom: 15px;
+  }
+
+  .name-line {
+    width: 45px;
+  }
+
   .hero-gif-wrapper {
-    width: 82%;
+    width: min(100%, 360px);
 
-    max-width: 420px;
-
-    align-self: flex-end;
+    justify-self: end;
 
     margin-right: 0;
   }
 
   .hero-gif {
-    min-height: auto;
+    width: 100%;
+
+    min-height: 0;
+
+    height: auto;
+  }
+
+  .gif-label {
+    font-size: 0.45rem;
+
+    margin-bottom: 8px;
   }
 
   .hero-side-info {
-    position: static;
+    left: 0;
 
-    margin-top: 5px;
+    bottom: 0;
 
-    flex-wrap: wrap;
+    gap: 15px;
 
-    gap: 18px;
+    font-size: 0.43rem;
   }
 
-
-  /* =========================
-     MOBILE HERO BOTTOM
-  ========================= */
+  .hero-side-info strong {
+    font-size: 0.48rem;
+  }
 
   .hero-bottom {
-    display: block;
-
     width: 100%;
 
-    margin-top: 20px;
+    display: block;
   }
 
   .hero-bottom p,
   .hero-usp {
-    max-width: 100% !important;
+    max-width: 65% !important;
 
-    font-size: 1rem !important;
+    font-size: 0.85rem !important;
 
-    line-height: 1.6 !important;
+    line-height: 1.55 !important;
   }
 
+  .hero-location,
+  .hero-year {
+    bottom: 8px;
 
-  /* =========================
-     PROJECTS
-  ========================= */
+    font-size: 0.43rem;
+  }
+
+  .marquee {
+    margin: 20px 0 80px;
+
+    padding: 15px 0;
+  }
+
+  .marquee-track {
+    font-size: 0.55rem;
+
+    gap: 20px;
+  }
+
+  .work,
+  .what-i-do,
+  .about {
+    width: calc(100% - 32px);
+  }
 
   .section-intro {
-    display: block;
+    display: flex;
 
-    margin-bottom: 50px;
+    justify-content: space-between;
+
+    align-items: end;
+
+    margin-bottom: 55px;
+  }
+
+  .section-intro h2 {
+    font-size: clamp(3.2rem, 10vw, 6rem);
   }
 
   .section-note {
-    margin-top: 30px;
+    width: 180px;
+
+    font-size: 0.55rem;
+
+    line-height: 1.6;
   }
 
   .project-card {
-    display: flex;
-
-    flex-direction: column;
+    display: grid;
   }
 
-  .project-garms,
-  .project-reveal,
+  .project-garms {
+    min-height: 480px;
+
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+
+  .project-reveal {
+    min-height: 480px;
+
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+
   .project-data {
-    min-height: auto;
+    min-height: 480px;
+
+    grid-template-columns: 0.75fr 1.25fr;
   }
 
-  .project-garms .project-content,
-  .project-reveal .project-content,
+  .project-garms .project-content {
+    padding: 70px 25px 30px;
+  }
+
+  .project-reveal .project-content {
+    padding: 70px 25px 30px;
+  }
+
   .project-data .project-content {
-    padding: 75px 25px 35px;
-
-    order: 1;
+    padding: 70px 25px 30px;
   }
 
-  .project-art,
-  .garms-art,
-  .terminal-art,
-  .dashboard-art {
-    min-height: 400px;
+  .project-content h3 {
+    font-size: clamp(2.4rem, 7vw, 5rem);
 
-    order: 2;
+    margin: 15px 0 20px;
+  }
+
+  .project-description {
+    max-width: 90%;
+
+    font-size: 0.62rem;
+
+    line-height: 1.65;
+  }
+
+  .project-tags {
+    gap: 5px;
+
+    margin-top: 18px;
+  }
+
+  .project-tags span {
+    padding: 5px 7px;
+
+    font-size: 0.43rem;
+  }
+
+  .project-number {
+    top: 22px;
+
+    left: 22px;
+
+    font-size: 0.45rem;
+  }
+
+  .garms-art {
+    min-height: 480px;
   }
 
   .garms-browser {
-    width: 85%;
+    width: 82%;
 
-    height: 75%;
+    height: 72%;
+  }
+
+  .garms-screen {
+    padding: 25px;
+  }
+
+  .garms-screen strong {
+    font-size: clamp(1.5rem, 4vw, 3rem);
   }
 
   .terminal-art {
-    padding: 30px 20px;
+    min-height: 480px;
+
+    padding: 25px;
+  }
+
+  .terminal {
+    width: 92%;
+  }
+
+  .terminal-body {
+    padding: 20px;
+
+    font-size: 0.48rem;
+  }
+
+  .dashboard-art {
+    min-height: 480px;
   }
 
   .dashboard {
-    width: 85%;
+    width: 84%;
 
-    height: 75%;
+    height: 72%;
+
+    padding: 15px;
   }
 
-
-  /* =========================
-     SKILLS
-  ========================= */
+  .big-stat {
+    font-size: 2.8rem;
+  }
 
   .what-i-do {
-    padding: 100px 0;
+    padding: 110px 0;
   }
 
   .what-header {
-    display: block;
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: start;
+
+    margin-bottom: 55px;
   }
 
   .what-header > p:last-child {
-    margin-top: 30px;
+    max-width: 230px;
+
+    font-size: 0.58rem;
+
+    line-height: 1.6;
   }
 
   .features {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1.1fr;
+
+    gap: 10px;
   }
 
   .feature {
-    min-height: 420px;
+    min-height: 390px;
+
+    padding: 20px;
   }
 
   .feature h3 {
-    font-size: clamp(4rem, 16vw, 7rem);
+    font-size: clamp(2.5rem, 7vw, 5rem);
   }
 
+  .feature p {
+    max-width: 100%;
 
-  /* =========================
-     ABOUT
-  ========================= */
+    font-size: 0.52rem;
+
+    line-height: 1.6;
+  }
+
+  .feature-number {
+    font-size: 0.45rem;
+  }
 
   .about {
-    grid-template-columns: 1fr;
+    padding: 70px 0 110px;
 
-    gap: 30px;
+    display: grid;
 
-    padding: 60px 0 100px;
+    grid-template-columns: 0.75fr 1.25fr;
+
+    gap: 40px;
+  }
+
+  .about-title h2 {
+    font-size: clamp(3.2rem, 8vw, 5.5rem);
   }
 
   .about-copy {
-    padding-top: 10px;
+    padding-top: 25px;
+  }
+
+  .large-copy {
+    font-size: clamp(1.15rem, 3vw, 2rem);
+  }
+
+  .about-copy > p:not(.large-copy) {
+    font-size: 0.58rem;
+
+    line-height: 1.7;
   }
 
   .about-facts {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
 
-    margin-top: 35px;
+    margin-top: 30px;
   }
 
   .about-facts div {
-    border-bottom: 1px solid var(--line);
+    padding: 12px 8px 12px 0;
   }
 
+  .about-facts span {
+    font-size: 0.4rem;
+  }
 
-  /* =========================
-     CONTACT
-  ========================= */
+  .about-facts strong {
+    font-size: 0.52rem;
+  }
 
   .contact {
-    padding: 75px 20px 30px;
+    padding: 80px 20px 30px;
   }
 
   .contact h2 {
     margin-top: 45px;
+
+    font-size: clamp(3.5rem, 10vw, 7rem);
   }
 
   .email {
-    margin-top: 60px;
+    margin-top: 65px;
 
-    font-size: 1.15rem;
-
-    gap: 20px;
+    font-size: clamp(0.9rem, 3vw, 1.7rem);
   }
 
   .contact-footer {
     display: flex;
 
-    flex-direction: column;
+    flex-direction: row;
 
-    align-items: flex-start;
+    align-items: center;
 
-    justify-content: flex-start;
+    justify-content: space-between;
 
-    gap: 25px;
+    gap: 20px;
+
+    flex-wrap: wrap;
   }
 
   .socials {
-    width: 100%;
-
     display: flex;
 
-    flex-direction: column;
-
-    align-items: flex-start;
+    align-items: center;
 
     gap: 20px;
   }
 
   .social-link {
-    font-size: 1.15rem;
+    font-size: 0.9rem;
   }
 
   .social-icon {
-    width: 22px;
+    width: 18px;
 
-    height: 22px;
+    height: 18px;
+  }
+
+  .social-link .arrow {
+    width: 12px;
+
+    height: 12px;
+  }
+
+  .social-link .arrow::before {
+    width: 9px;
+
+    height: 1.2px;
+
+    top: 6px;
+  }
+
+  .social-link .arrow::after {
+    width: 5px;
+
+    height: 5px;
+
+    top: 1px;
   }
 
   .phone-link {
-    font-size: 1.15rem;
+    font-size: 0.9rem;
   }
 
   .contact-footer .copyright {
-    margin-left: 0;
+    margin-left: auto;
 
-    margin-top: 10px;
+    font-size: 0.45rem;
   }
 }
 
 
 /* ==================================================
    SMALL MOBILE
+   SAME DESIGN — JUST SMALLER
 ================================================== */
 
 @media (max-width: 480px) {
 
   .nav {
+    width: calc(100% - 24px);
+
     height: 55px;
+  }
+
+  nav {
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 0.45rem;
   }
 
   .hero {
@@ -2197,39 +2429,72 @@ nav a:hover::after {
   }
 
   .hero-content {
+    width: calc(100% - 24px);
+
     min-height: 760px;
 
-    padding-top: 90px;
+    padding-top: 85px;
   }
 
   .hero-top {
-    font-size: 0.55rem;
+    font-size: 0.45rem;
   }
 
-  .hero-status {
-    display: none;
+  .hero-main {
+    min-height: 330px;
+
+    grid-template-columns: 1fr 0.7fr;
+
+    column-gap: 10px;
+  }
+
+  .hero-name {
+    padding: 20px 0;
   }
 
   .hero-name h1 {
-    font-size: clamp(4rem, 19vw, 7rem);
+    font-size: clamp(2.5rem, 12vw, 4.5rem);
+  }
+
+  .name-top {
+    font-size: 0.4rem;
+
+    gap: 7px;
+
+    margin-bottom: 10px;
+  }
+
+  .name-line {
+    width: 30px;
+  }
+
+  .outline-name {
+    -webkit-text-stroke: 1px var(--brown);
   }
 
   .hero-gif-wrapper {
-    width: 88%;
+    width: 100%;
+
+    max-width: none;
+  }
+
+  .hero-gif {
+    min-height: 0;
+  }
+
+  .gif-label {
+    font-size: 0.38rem;
   }
 
   .hero-side-info {
-    gap: 12px;
+    gap: 8px;
+
+    font-size: 0.34rem;
   }
 
   .hero-side-info strong {
-    font-size: 0.5rem;
+    font-size: 0.38rem;
   }
-
-
-  /* =========================
-     SMALL MOBILE HERO
-  ========================= */
 
   .hero-bottom {
     margin-top: 15px;
@@ -2237,92 +2502,283 @@ nav a:hover::after {
 
   .hero-bottom p,
   .hero-usp {
-    max-width: 100% !important;
+    max-width: 72% !important;
 
-    font-size: 0.82rem !important;
+    font-size: 0.65rem !important;
 
-    line-height: 1.55 !important;
+    line-height: 1.5 !important;
+  }
+
+  .hero-location,
+  .hero-year {
+    font-size: 0.35rem;
   }
 
   .marquee {
-    margin-bottom: 75px;
+    margin-bottom: 60px;
+
+    padding: 12px 0;
+  }
+
+  .marquee-track {
+    font-size: 0.45rem;
+
+    gap: 15px;
+  }
+
+  .section-intro {
+    margin-bottom: 35px;
   }
 
   .section-intro h2 {
-    font-size: 4rem;
+    font-size: 2.7rem;
+  }
+
+  .section-note {
+    width: 120px;
+
+    font-size: 0.4rem;
+
+    line-height: 1.5;
+  }
+
+  .project-garms,
+  .project-reveal,
+  .project-data {
+    min-height: 350px;
+  }
+
+  .project-garms .project-content,
+  .project-reveal .project-content,
+  .project-data .project-content {
+    padding: 50px 15px 20px;
   }
 
   .project-content h3 {
-    font-size: 3.5rem;
+    font-size: clamp(1.8rem, 8vw, 3rem);
+
+    margin: 10px 0 15px;
+  }
+
+  .project-description {
+    font-size: 0.45rem;
+
+    line-height: 1.5;
+  }
+
+  .project-tags {
+    margin-top: 12px;
+
+    gap: 3px;
+  }
+
+  .project-tags span {
+    padding: 3px 5px;
+
+    font-size: 0.34rem;
+  }
+
+  .project-number {
+    top: 15px;
+
+    left: 15px;
+
+    font-size: 0.38rem;
+  }
+
+  .garms-art,
+  .terminal-art,
+  .dashboard-art {
+    min-height: 350px;
+  }
+
+  .garms-browser {
+    width: 87%;
+
+    height: 70%;
   }
 
   .garms-screen {
-    padding: 30px;
+    padding: 15px;
   }
 
-  .garms-piece {
-    transform: scale(0.8);
+  .garms-screen strong {
+    font-size: 1.3rem;
+  }
+
+  .terminal-art {
+    padding: 15px 8px;
   }
 
   .terminal-body {
-    padding: 20px;
+    padding: 12px;
 
-    font-size: 0.58rem;
+    font-size: 0.35rem;
   }
 
   .dashboard {
-    width: 90%;
+    width: 88%;
 
-    padding: 18px;
+    height: 70%;
+
+    padding: 10px;
   }
 
   .big-stat {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
+  .what-i-do {
+    padding: 80px 0;
+  }
 
-  /* =========================
-     SKILLS
-  ========================= */
+  .what-header {
+    margin-bottom: 35px;
+  }
+
+  .what-header > p:last-child {
+    max-width: 110px;
+
+    font-size: 0.38rem;
+  }
+
+  .features {
+    grid-template-columns: 1fr 1fr 1.1fr;
+
+    gap: 5px;
+  }
 
   .feature {
-    min-height: 430px;
+    min-height: 270px;
 
-    padding: 25px;
+    padding: 12px;
   }
 
   .feature h3 {
-    font-size: 4rem;
+    font-size: 2.1rem;
   }
 
   .feature p {
-    font-size: 0.72rem;
+    font-size: 0.35rem;
+
+    line-height: 1.45;
   }
 
+  .feature-number {
+    font-size: 0.35rem;
+  }
 
-  /* =========================
-     CONTACT
-  ========================= */
+  .about {
+    padding: 50px 0 80px;
+
+    display: grid;
+
+    grid-template-columns: 0.75fr 1.25fr;
+
+    gap: 20px;
+  }
+
+  .about-title h2 {
+    font-size: 2.7rem;
+  }
+
+  .about-copy {
+    padding-top: 10px;
+  }
+
+  .large-copy {
+    font-size: 0.95rem;
+  }
+
+  .about-copy > p:not(.large-copy) {
+    font-size: 0.4rem;
+
+    line-height: 1.55;
+  }
+
+  .about-facts {
+    grid-template-columns: repeat(3, 1fr);
+
+    margin-top: 20px;
+  }
+
+  .about-facts div {
+    padding: 8px 5px 8px 0;
+  }
+
+  .about-facts span {
+    font-size: 0.3rem;
+  }
+
+  .about-facts strong {
+    font-size: 0.36rem;
+  }
+
+  .contact {
+    padding: 60px 14px 25px;
+  }
+
+  .contact h2 {
+    font-size: 2.8rem;
+
+    margin-top: 35px;
+  }
+
+  .email {
+    margin-top: 40px;
+
+    font-size: 0.7rem;
+  }
 
   .contact-footer {
-    gap: 22px;
+    gap: 10px;
   }
 
   .socials {
-    gap: 18px;
+    gap: 10px;
   }
 
   .social-link {
-    font-size: 1rem;
+    font-size: 0.55rem;
+
+    gap: 5px;
   }
 
   .social-icon {
-    width: 20px;
+    width: 14px;
 
-    height: 20px;
+    height: 14px;
+  }
+
+  .social-link .arrow {
+    width: 9px;
+
+    height: 9px;
+
+    margin-left: 1px;
+  }
+
+  .social-link .arrow::before {
+    width: 7px;
+
+    height: 1px;
+
+    top: 5px;
+  }
+
+  .social-link .arrow::after {
+    width: 4px;
+
+    height: 4px;
+
+    top: 1px;
   }
 
   .phone-link {
-    font-size: 1rem;
+    font-size: 0.55rem;
+  }
+
+  .contact-footer .copyright {
+    font-size: 0.3rem;
   }
 }
