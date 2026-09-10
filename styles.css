@@ -631,7 +631,7 @@ nav a:hover::after {
 
 /* ==================================================
    HERO BOTTOM
-========================= */
+================================================== */
 
 .hero-bottom {
   width: 100%;
@@ -1708,6 +1708,11 @@ nav a:hover::after {
   font-size: 1.3em;
 }
 
+
+/* =========================
+   CONTACT FOOTER
+========================= */
+
 .contact-footer {
   margin-top: 25px;
 
@@ -1715,13 +1720,13 @@ nav a:hover::after {
 
   align-items: center;
 
-  gap: 25px;
+  justify-content: space-between;
+
+  gap: 30px;
 
   flex-wrap: wrap;
 
   font-family: "DM Mono", monospace;
-
-  font-size: 0.6rem;
 
   color: #AEBBC5;
 }
@@ -1730,14 +1735,104 @@ nav a:hover::after {
   text-decoration: none;
 }
 
+
+/* =========================
+   SOCIAL LINKS
+========================= */
+
 .socials {
   display: flex;
 
-  gap: 20px;
+  align-items: center;
+
+  gap: 38px;
 }
 
-.contact-footer span {
+.social-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: var(--cream);
+
+  text-decoration: none;
+
+  font-family: "DM Mono", monospace;
+
+  font-size: 1.25rem;
+
+  font-weight: 500;
+
+  letter-spacing: -0.02em;
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+
+/* ICON */
+
+.social-icon {
+  width: 24px;
+
+  height: 24px;
+
+  fill: currentColor;
+
+  flex-shrink: 0;
+
+  transition:
+    transform 0.25s ease;
+}
+
+
+/* ARROW */
+
+.social-link .arrow {
+  font-size: 1rem;
+
+  margin-left: -4px;
+
+  transition:
+    transform 0.25s ease;
+}
+
+
+/* HOVER */
+
+.social-link:hover {
+  transform: translateY(-3px);
+
+  opacity: 0.75;
+}
+
+.social-link:hover .social-icon {
+  transform: scale(1.1);
+}
+
+.social-link:hover .arrow {
+  transform: translate(3px, -3px);
+}
+
+
+/* PHONE */
+
+.phone-link {
+  font-size: 1.25rem;
+}
+
+
+/* COPYRIGHT */
+
+.contact-footer .copyright {
   margin-left: auto;
+
+  font-size: 0.6rem;
+
+  color: #AEBBC5;
 }
 
 
@@ -2042,13 +2137,47 @@ nav a:hover::after {
   }
 
   .contact-footer {
-    display: grid;
+    display: flex;
 
-    grid-template-columns: 1fr 1fr;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    justify-content: flex-start;
+
+    gap: 25px;
   }
 
-  .contact-footer span {
+  .socials {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 20px;
+  }
+
+  .social-link {
+    font-size: 1.15rem;
+  }
+
+  .social-icon {
+    width: 22px;
+
+    height: 22px;
+  }
+
+  .phone-link {
+    font-size: 1.15rem;
+  }
+
+  .contact-footer .copyright {
     margin-left: 0;
+
+    margin-top: 10px;
   }
 }
 
@@ -2176,6 +2305,24 @@ nav a:hover::after {
   ========================= */
 
   .contact-footer {
-    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .socials {
+    gap: 18px;
+  }
+
+  .social-link {
+    font-size: 1rem;
+  }
+
+  .social-icon {
+    width: 20px;
+
+    height: 20px;
+  }
+
+  .phone-link {
+    font-size: 1rem;
   }
 }
